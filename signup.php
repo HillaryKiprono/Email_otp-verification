@@ -1,5 +1,5 @@
 <?php
-require "fuctions.php";
+require "functions.php";
 $errors = array();
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -9,8 +9,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 	if(count($errors) == 0)
 	{
-		header("Location: login.php");
-		die;
+		 header("Location: login.php");
+		 die;
 	}
 }
 
@@ -27,6 +27,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	<?php include('header.php')?>
 
 	<div>
+
+	<div>
+			<?php if(count($errors) > 0):?>
+				<?php foreach ($errors as $error):?>
+					<?= $error?> <br>	
+				<?php endforeach;?>
+			<?php endif;?>
+
+		</div>
 		
 		<form method="post">
 			<input type="text" name="username" placeholder="Username"><br>
